@@ -39,7 +39,6 @@
             padding: 0 16px;
         }
 
-        /* Header */
         header {
             position: sticky;
             top: 0;
@@ -115,7 +114,6 @@
             box-shadow: 0 0 12px var(--brand-green-glow);
         }
 
-        /* Hero */
         .hero {
             padding: 32px 0 24px;
             text-align: center;
@@ -180,7 +178,6 @@
             margin: 0 auto 28px;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -222,9 +219,11 @@
             line-height: 1.4;
         }
 
-        /* Inventory Showcase */
         .section-header {
-            margin: 30px 0 18px;
+            margin: 36px 0 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
         }
 
         .section-title {
@@ -232,6 +231,12 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: -0.5px;
+        }
+
+        .section-sub {
+            font-size: 0.8rem;
+            color: var(--brand-green);
+            font-weight: 600;
         }
 
         .bike-grid {
@@ -251,7 +256,7 @@
 
         .bike-img-container {
             width: 100%;
-            height: 210px;
+            height: 220px;
             background: #000000;
             overflow: hidden;
             position: relative;
@@ -267,7 +272,7 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.78);
             backdrop-filter: blur(6px);
             border: 1px solid var(--border-color);
             color: #ffffff;
@@ -311,7 +316,158 @@
             text-transform: uppercase;
         }
 
-        /* Contact Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.25s ease;
+        }
+
+        .gallery-item:active img,
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            background: rgba(9, 13, 18, 0.82);
+            backdrop-filter: blur(4px);
+            color: #f8fafc;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 8, 12, 0.96);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-top {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .lightbox-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-wrap {
+            max-width: 95%;
+            max-height: 68vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-wrap img {
+            max-width: 100%;
+            max-height: 68vh;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            object-fit: contain;
+        }
+
+        .lb-caption {
+            margin-top: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--brand-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .lb-nav-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .lb-wa-btn {
+            flex: 1;
+            background: #25d366;
+            color: #000000;
+            text-align: center;
+            padding: 11px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
         .contact-card {
             background: linear-gradient(145deg, rgba(34, 197, 94, 0.08), var(--card-bg));
             border: 1px solid rgba(34, 197, 94, 0.25);
@@ -354,19 +510,17 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="container nav-content">
             <div class="brand-logo-group">
-                <img src="IMG-20261103-WA0003.jpg" alt="Logo" class="header-logo">
+                <img src="IMG-20261103-WA0003.jpg" alt="Gustavo Rides Logo" class="header-logo">
                 <div class="brand-title">GUSTAVO <span>RIDES</span></div>
             </div>
-            
+
             <div class="nav-actions">
                 <a href="https://instagram.com/luhyakidd_snr" target="_blank" class="social-icon" title="Instagram">
                     <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                
                 <a href="https://wa.me/254700512576?text=Hi%20Gustavo%20Rides,%20I%20have%20an%20inquiry" class="nav-btn">WhatsApp</a>
             </div>
         </div>
@@ -374,7 +528,6 @@
 
     <div class="container">
 
-        <!-- Hero Section -->
         <section class="hero">
             <img src="IMG-20261103-WA0003.jpg" alt="Gustavo Rides Logo" class="hero-main-logo">
 
@@ -383,30 +536,28 @@
             </div>
             <h1>Gustavo Rides</h1>
             <div class="hero-tagline">HOME OF COOL BIKES</div>
-            <p>Your premier dealership for superbike sales, custom imports, expert garage diagnostics, and quality tyre supplies.</p>
+            <p>Your premier brokerage for superbike sales, custom imports, expert bike consultations, and sourcing genuine parts &amp; riding gear.</p>
 
-            <!-- Services Grid -->
             <div class="services-grid">
                 <div class="service-card">
-                    <h4>🏍️ Sales & Imports</h4>
-                    <p>Sourcing and selling high-performance street, touring, and superbike models.</p>
+                    <h4>🏍️ Sales &amp; Imports</h4>
+                    <p>Sourcing and selling high-performance street, touring, adventure, and superbike models.</p>
                 </div>
                 <div class="service-card">
                     <h4>📦 Nationwide Deliveries</h4>
                     <p>Secure transport and direct location delivery for all bike purchases.</p>
                 </div>
                 <div class="service-card">
-                    <h4>🔧 Repair & Garage</h4>
-                    <p>Full diagnostics, regular servicing, engine tuning, and mechanical care.</p>
+                    <h4>🧠 Bike Consultations</h4>
+                    <p>Expert guidance on choosing the right machine, pre-purchase inspections, and valuation.</p>
                 </div>
                 <div class="service-card">
-                    <h4>🛞 Tyre Dealer</h4>
-                    <p>Premium performance tyres and professional installation services.</p>
+                    <h4>🪖 Sourcing Parts &amp; Gear</h4>
+                    <p>Sourcing genuine motorcycle parts, helmets, riding jackets, gloves, and protective gear.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Showcase -->
         <div class="section-header">
             <h2 class="section-title">Featured Superbikes</h2>
         </div>
@@ -414,13 +565,13 @@
         <div class="bike-grid">
             <div class="bike-card">
                 <div class="bike-img-container">
-                    <span class="bike-tag">Touring</span>
-                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Yamaha Tracer 900GT">
+                    <span class="bike-tag">Sport Touring</span>
+                    <img src="1000895877.jpg" alt="Yamaha Tracer 9 GT">
                 </div>
                 <div class="bike-details">
-                    <h3 class="bike-title">Yamaha Tracer 900GT / 7GT</h3>
-                    <p class="bike-desc">Sport touring performance built for long-distance cruising & ultimate speed.</p>
-                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Yamaha%20Tracer" class="btn-whatsapp">
+                    <h3 class="bike-title">Yamaha Tracer 9 GT</h3>
+                    <p class="bike-desc">Sport touring performance with Akrapovič exhaust, built for long-distance cruising &amp; speed.</p>
+                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Yamaha%20Tracer%209%20GT" class="btn-whatsapp">
                         💬 Inquire on WhatsApp
                     </a>
                 </div>
@@ -429,12 +580,12 @@
             <div class="bike-card">
                 <div class="bike-img-container">
                     <span class="bike-tag">Naked Street</span>
-                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Suzuki GSX-R / Yamaha MT07">
+                    <img src="1000895891.jpg" alt="Yamaha MT-09">
                 </div>
                 <div class="bike-details">
-                    <h3 class="bike-title">Suzuki GSX-R / Yamaha MT-07</h3>
-                    <p class="bike-desc">Aggressive naked street styling, high torque, and lightweight handling.</p>
-                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Street%20Superbike" class="btn-whatsapp">
+                    <h3 class="bike-title">Yamaha MT-09</h3>
+                    <p class="bike-desc">Aggressive Master of Torque styling, triple-cylinder power, and sharp street handling.</p>
+                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Yamaha%20MT-09" class="btn-whatsapp">
                         💬 Inquire on WhatsApp
                     </a>
                 </div>
@@ -443,19 +594,25 @@
             <div class="bike-card">
                 <div class="bike-img-container">
                     <span class="bike-tag">Superbike</span>
-                    <img src="https://images.unsplash.com/photo-1543599538-a6cbae55e8a0?auto=format&fit=crop&w=600&q=80" alt="Kawasaki 1000">
+                    <img src="1000895884.jpg" alt="Honda CBR1000RR Fireblade">
                 </div>
                 <div class="bike-details">
-                    <h3 class="bike-title">Kawasaki 1000</h3>
-                    <p class="bike-desc">Pure power superbike ready for immediate viewing or custom imports.</p>
-                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Kawasaki%201000" class="btn-whatsapp">
+                    <h3 class="bike-title">Honda CBR1000RR Fireblade</h3>
+                    <p class="bike-desc">Pure track-bred superbike performance ready for immediate viewing or custom import.</p>
+                    <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I%20am%20inquiring%20about%20the%20Honda%20CBR1000RR%20Fireblade" class="btn-whatsapp">
                         💬 Inquire on WhatsApp
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Official Contact Banner -->
+        <div class="section-header">
+            <h2 class="section-title">Showroom Gallery</h2>
+            <span class="section-sub">Tap any photo to zoom</span>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+
         <section class="contact-card">
             <h2>Contact Dealership</h2>
             <div class="contact-details">
@@ -464,7 +621,7 @@
                 <div class="contact-item">📸 <strong>Instagram:</strong> @luhyakidd_snr</div>
                 <div class="contact-item">⏰ <strong>Hours:</strong> Appointment Only</div>
             </div>
-            <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I'd%20like%20to%20book%20an%20appointment" class="btn-whatsapp" style="display: block; padding: 12px; text-align: center;">
+            <a href="https://wa.me/254700512576?text=Hi%20Gustavo,%20I'd%20like%20to%20book%20an%20appointment" class="btn-whatsapp">
                 💬 Book Showroom Appointment
             </a>
         </section>
@@ -474,6 +631,100 @@
         </footer>
 
     </div>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-top">
+            <span id="lbCounter">1 / 26</span>
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        </div>
+        <div class="lightbox-img-wrap">
+            <img id="lbImage" src="" alt="Bike Preview">
+        </div>
+        <div class="lb-caption" id="lbCaption">Yamaha MT-09</div>
+        <div class="lightbox-controls">
+            <button class="lb-nav-btn" onclick="changeSlide(-1)">◀ Prev</button>
+            <a id="lbWhatsapp" href="#" target="_blank" class="lb-wa-btn">💬 Inquire About Bike</a>
+            <button class="lb-nav-btn" onclick="changeSlide(1)">Next ▶</button>
+        </div>
+    </div>
+
+    <script>
+        const galleryItems = [
+            { src: "1000895870.jpg", name: "Yamaha MT-09 (Blue)" },
+            { src: "1000895877.jpg", name: "Yamaha Tracer 9 GT" },
+            { src: "1000895884.jpg", name: "Honda CBR1000RR Fireblade" },
+            { src: "1000895875.jpg", name: "BMW R 1300 GS" },
+            { src: "1000895879.jpg", name: "Yamaha MT-10" },
+            { src: "1000895887.jpg", name: "BMW S 1000 XR" },
+            { src: "1000895873.jpg", name: "Ducati Multistrada Enduro" },
+            { src: "1000895889.jpg", name: "Honda CB650R" },
+            { src: "1000895886.jpg", name: "BMW F 900 R" },
+            { src: "1000895891.jpg", name: "Yamaha MT-09 (Black/Gold)" },
+            { src: "1000895867.jpg", name: "Honda Africa Twin (Tricolor)" },
+            { src: "1000895866.jpg", name: "Honda Africa Twin (Black)" },
+            { src: "1000895872.jpg", name: "Yamaha Tracer 9 (Silver)" },
+            { src: "1000895871.jpg", name: "Yamaha Tracer 9 (Profile)" },
+            { src: "1000895878.jpg", name: "Yamaha Tracer 900" },
+            { src: "1000895876.jpg", name: "Yamaha Tracer 9 GT (Front)" },
+            { src: "1000895869.jpg", name: "Yamaha MT-09 (Gen 3)" },
+            { src: "1000895862.jpg", name: "Yamaha MT-09 (Grey/Neon)" },
+            { src: "1000895890.jpg", name: "Yamaha MT-07 (Blue)" },
+            { src: "1000895860.jpg", name: "Yamaha MT-07 (Night)" },
+            { src: "1000895883.jpg", name: "Honda NC750X (Silver)" },
+            { src: "1000895881.jpg", name: "Honda NC750X (Red)" },
+            { src: "1000895880.jpg", name: "Honda NC750X (Rear)" },
+            { src: "1000895885.jpg", name: "CFMoto NK" },
+            { src: "1000895868.jpg", name: "Honda CBR (Black)" },
+            { src: "1000895864.jpg", name: "Suzuki Gixxer" }
+        ];
+
+        const galleryGrid = document.getElementById("galleryGrid");
+        const lightbox = document.getElementById("lightbox");
+        const lbImage = document.getElementById("lbImage");
+        const lbCounter = document.getElementById("lbCounter");
+        const lbCaption = document.getElementById("lbCaption");
+        const lbWhatsapp = document.getElementById("lbWhatsapp");
+        let currentIndex = 0;
+
+        galleryItems.forEach((bike, index) => {
+            const item = document.createElement("div");
+            item.className = "gallery-item";
+            item.innerHTML = `
+                <img src="${bike.src}" alt="${bike.name}" loading="lazy">
+                <span class="gallery-badge">${bike.name}</span>
+            `;
+            item.onclick = () => openLightbox(index);
+            galleryGrid.appendChild(item);
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add("active");
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+        }
+
+        function changeSlide(step) {
+            currentIndex = (currentIndex + step + galleryItems.length) % galleryItems.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const bike = galleryItems[currentIndex];
+            lbImage.src = bike.src;
+            lbCaption.textContent = bike.name;
+            lbCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+            const encodedMsg = encodeURIComponent(`Hi Gustavo Rides, I saw the ${bike.name} in your showroom gallery and would like to inquire.`);
+            lbWhatsapp.href = `https://wa.me/254700512576?text=${encodedMsg}`;
+        }
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    </script>
 
 </body>
 </html>
